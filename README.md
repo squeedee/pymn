@@ -1,4 +1,28 @@
-pymn
-====
-
 Patterns You May Need
+=======
+# Pymn
+
+Other patterns, not just the one your framework provides, are quite useful. Especially as your app gets bigger.
+
+Here are some (one so far) patterns that you may need.
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'pymn'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install pymn
+
+## Usage
+
+### Chain Of Responsibility
+
+TODO: example usage
+
