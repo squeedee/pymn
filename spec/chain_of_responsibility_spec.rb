@@ -74,6 +74,11 @@ module Pymn
             command_handler.run_command([1,2,3])
           end
 
+          it "adds handlers to the leaf node" do
+            last_handler = double(:last_handler)
+            next_handler.should_receive(:add_handler).with(last_handler)
+            command_handler.add_handler(last_handler)
+          end
         end
       end
     end
