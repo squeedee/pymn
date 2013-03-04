@@ -16,9 +16,9 @@ module Pymn
         command_method = "__command_#{method}".to_sym
         alias_method command_method, method
 
-        self.define_method(method) do |*args|
-          if self.instance_eval(&block) 
-            return self.send(command_method, *args)
+        define_method(method) do |*args|
+          if instance_eval(&block) 
+            return send(command_method, *args)
           end
 
           if @next_handler_in_chain
