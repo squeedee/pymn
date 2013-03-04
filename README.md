@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/squeedee/pymn.png?branch=master)](https://travis-ci.org/squeedee/pymn)
+
 Patterns You May Need
 =======
-# Pymn
 
 Other patterns, not just the one your framework provides, are quite useful. Especially as your app gets bigger.
 
