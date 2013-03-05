@@ -5,16 +5,16 @@ describe "Chain Of Responsibility as a class method" do
   let(:items) { 
     [
       Product.new(
-        price: 5.0,
-        description: "Hat with wide brim"
+        :price => 5.0,
+        :description => "Hat with wide brim"
       ),
       Product.new(
-        price: 10.20,
-        description: "Office chair",
-        discount: 50
+        :price => 10.20,
+        :description => "Office chair",
+        :discount => 50
       ),
       Promotion.new(
-        description: "Add our after-sales care and receive a further 10% off your order"
+        :description => "Add our after-sales care and receive a further 10% off your order"
       )
     ]
   }
