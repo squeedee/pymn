@@ -18,7 +18,6 @@ module Pymn
       subject { TestClass }
 
       its(:build) { should be_an_instance_of(TestClass) }
-
     end
   end
 end

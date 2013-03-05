@@ -22,10 +22,9 @@ describe "Chain Of Responsibility" do
     buffer.should_receive(:<<).with("Warning: things look grim")
     logger.log(:warn, "things look grim")
   end
- 
+
   it "logs errors in all caps" do
     buffer.should_receive(:<<).with("ERROR: OH NO, IT WENT WRONG")
     logger.log(:error, "oh no, it went wrong")
   end
-
 end

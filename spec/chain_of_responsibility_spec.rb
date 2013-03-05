@@ -19,7 +19,6 @@ module Pymn
       end
     end
 
-    # describe 
 
     describe "calling the handler" do
       let(:test_class) do
@@ -84,6 +83,5 @@ module Pymn
         end
       end
     end
-
   end
 end

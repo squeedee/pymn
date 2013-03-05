@@ -8,7 +8,6 @@ module Pymn
 
       its(:message) { should include "'the_command' could not be handled" }
     end
-
   end
 end
 

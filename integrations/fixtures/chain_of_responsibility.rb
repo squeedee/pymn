@@ -12,7 +12,6 @@ class ErrorLogger
   end
 
   responsibility(:log) { |type, message| type == :error }
-
 end
 
 class WarnLogger

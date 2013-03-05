@@ -12,5 +12,4 @@ class
   end
 
   responsibility (:handle_message) { |message, type| type == @supports_type }
-
 end

@@ -8,6 +8,5 @@ module Pymn
 
       its(:message) { should include "'my_method' not defined" }
     end
-
   end
 end
