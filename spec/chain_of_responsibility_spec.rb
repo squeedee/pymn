@@ -20,6 +20,33 @@ module Pymn
     end
 
 
+    describe "#add_handler" do
+      let(:test_class) {
+        Class.new do
+          include Pymn::ChainOfResponsibility
+          def action
+          end
+
+          responsibility(:action) { true}
+        end
+      }
+
+      let(:next_handler) { double(:next_handler) }
+      subject(:instance) { test_class.new }
+
+      it "provides a fluent interface for add_handler" do
+        result = instance.add_handler(next_handler)
+        result.should == instance
+      end
+
+      it "adds handlers to the leaf node" do
+        instance.add_handler(next_handler)
+        last_handler = double(:last_handler)
+        next_handler.should_receive(:add_handler).with(last_handler)
+        instance.add_handler(last_handler)
+      end
+    end
+
     describe "calling the handler" do
       let(:test_class) do
         Class.new do
@@ -75,11 +102,6 @@ module Pymn
             command_handler.run_command([1,2,3])
           end
 
-          it "adds handlers to the leaf node" do
-            last_handler = double(:last_handler)
-            next_handler.should_receive(:add_handler).with(last_handler)
-            command_handler.add_handler(last_handler)
-          end
         end
       end
     end

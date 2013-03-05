@@ -17,7 +17,7 @@ module Pymn
         alias_method command_method, method
 
         define_method(method) do |*args|
-          if instance_exec(*args, &block) 
+          if instance_exec(*args, &block)
             return send(command_method, *args)
           end
 
@@ -38,6 +38,7 @@ module Pymn
       else
         @next_handler_in_chain = next_handler
       end
+      self
     end
 
   end
