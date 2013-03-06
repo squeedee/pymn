@@ -27,3 +27,8 @@ Or install it yourself as:
 
 TODO: example usage
 
+For now, take a look at:
+
+https://github.com/squeedee/pymn/blob/master/integrations/fixtures/chain_of_responsibility.rb
+https://github.com/squeedee/pymn/blob/master/integrations/fixtures/chain_of_responsibility_factory.rb
+
