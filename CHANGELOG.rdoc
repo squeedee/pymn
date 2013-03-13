@@ -1,0 +1,8 @@
+== 0.0.1
+
+* Introduced Chain Of Command pattern
+* Introduced Chain Of Command Factory Pattern
+
+==== Known Issues
+
+* Does not work with rubinius.
