@@ -16,8 +16,10 @@ module Pymn
             raise ResponsibilityMethodUndefinedError.new(class_method)
           end
 
-          singleton_class.define_method(:create_factory) do
-            FactoryCommand.new(self, class_method, block) 
+          singleton_class.instance_eval do
+            define_method(:create_factory) do
+              FactoryCommand.new(self, class_method, block) 
+            end
           end
         end
       end
