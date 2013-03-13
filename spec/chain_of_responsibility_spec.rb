@@ -27,7 +27,7 @@ module Pymn
           def action
           end
 
-          responsibility(:action) { true}
+          responsibility(:action) { true }
         end
       }
 

@@ -1,10 +1,15 @@
 require 'active_support/concern'
 require 'pymn/chain_of_responsibility/command_not_handled_error'
 require 'pymn/chain_of_responsibility/responsibility_method_undefined_error'
+require 'pymn/chain_of_responsibility/has_handlers'
 
 module Pymn
   module ChainOfResponsibility
     extend ActiveSupport::Concern
+
+    included do
+      include HasHandlers
+    end
 
     module ClassMethods
 
@@ -27,19 +32,8 @@ module Pymn
 
           raise CommandNotHandledError.new(method)
         end
-
       end
 
     end
-
-    def add_handler(next_handler)
-      if (@next_handler_in_chain)
-        @next_handler_in_chain.add_handler(next_handler)
-      else
-        @next_handler_in_chain = next_handler
-      end
-      self
-    end
-
   end
 end

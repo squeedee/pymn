@@ -29,7 +29,7 @@ class ProductPresenter
     new(product)
   end
 
-  factory_responsibility :build do |model| 
+  responsibility :build do |model| 
     model.is_a?(Product)
   end
 
@@ -53,7 +53,7 @@ class SpecialsPresenter
     new(product)
   end
 
-  factory_responsibility :build do |model| 
+  responsibility :build do |model| 
     model.is_a?(Product) &&
       model.discounted?
   end
@@ -78,7 +78,7 @@ class PromotionPresenter
     new(promotion)
   end
 
-  factory_responsibility :build do |model| 
+  responsibility :build do |model| 
     model.is_a?(Promotion)
   end
 
@@ -97,12 +97,9 @@ class ProductsPresenter
   def self.build_chain
     return @chain if @chain
 
-    # FIXME. Risky using this 'remote' store of the chain
-    # to asses wether the chain needs building.
-    # Need to think about mitigation.
-    @chain = SpecialsPresenter.
-      add_handler(ProductPresenter).
-      add_handler(PromotionPresenter)
+    @chain = SpecialsPresenter.create_factory.
+      add_handler(ProductPresenter.create_factory).
+      add_handler(PromotionPresenter.create_factory)
   end
 
   def initialize(product_list)
